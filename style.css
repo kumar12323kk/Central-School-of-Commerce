@@ -1,0 +1,330 @@
+/* ===== CSS VARIABLES ===== */
+:root {
+    --bg-cream: #F6E2C0;
+    --text-navy: #102840;
+    --accent-mustard: #E1A100;
+    --font-heading: 'Raleway', sans-serif;
+    --font-body: 'Manrope', sans-serif;
+  }
+  
+  /* ===== RESET & BASE STYLES ===== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: var(--font-body);
+    background-color: var(--bg-cream);
+    color: var(--text-navy);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+  }
+  
+  h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--text-navy);
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  /* ===== NAVBAR ===== */
+  .navbar {
+    background-color: var(--bg-cream);
+    color: var(--text-navy);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  
+  .navbar .logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--text-navy);
+  }
+
+  .logo-icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+    vertical-align: middle;
+    border-radius: 4px; /* optional */
+  }
+  
+  .navbar .nav-right {
+    display: none;
+    gap: 1.2rem;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: var(--text-navy);
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+  
+  .navbar a:hover {
+    color: var(--accent-mustard);
+  }
+  
+  .nav-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  /* ===== HERO SECTION ===== */
+  .hero {
+    text-align: center;
+    padding: 5rem 1rem;
+    background-color: var(--bg-cream);
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  /* ===== BUTTONS ===== */
+  .btn {
+    background-color: var(--text-navy);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: var(--accent-mustard);
+    color: var(--text-navy);
+  }
+  
+  .btn.outline {
+    background: none;
+    border: 2px solid var(--text-navy);
+    color: var(--text-navy);
+  }
+  
+  .btn.outline:hover {
+    background-color: var(--accent-mustard);
+    border-color: var(--accent-mustard);
+    color: var(--text-navy);
+  }
+  
+  /* ===== SECTIONS ===== */
+  .section {
+    padding: 4rem 1.5rem;
+    text-align: center;
+  }
+  
+  .section.alt {
+    background-color: #fbeccf;
+  }
+  
+  .section h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+  
+  .section p,
+  .section li {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .features {
+    max-width: 600px;
+    margin: 2rem auto 0;
+    padding-left: 0;
+  }
+  
+  .features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    justify-content: center;
+  }
+  
+  .features i {
+    color: var(--accent-mustard);
+  }
+  
+  /* ===== COURSE LIST ===== */
+  .course-list {
+    max-width: 600px;
+    margin: auto;
+    text-align: left;
+  }
+  
+  /* ===== ENQUIRY FORM ===== */
+  .enquiry-form {
+    max-width: 600px;
+    margin: auto;
+    text-align: left;
+  }
+  
+  .enquiry-form label {
+    display: block;
+    margin: 1rem 0 0.3rem;
+    font-weight: 600;
+  }
+  
+  .enquiry-form input,
+  .enquiry-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--accent-mustard);
+    border-radius: 4px;
+    font-size: 1rem;
+    resize: vertical;
+  }
+  
+  .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .checkbox-group label {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1rem;
+    gap: 0.5rem;
+    cursor: pointer;
+  }
+
+  .checkbox-group input[type="checkbox"] {
+    transform: translateY(1px); /* aligns checkbox with text */
+    accent-color: var(--accent-mustard); /* makes checkbox match theme */
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+  
+  
+  /* ===== FOOTER ===== */
+  .footer {
+    background-color: var(--bg-cream);
+    padding: 2rem 1rem;
+    text-align: center;
+    font-size: 0.95rem;
+    border-top: 2px solid var(--accent-mustard);
+  }
+  
+  .footer a {
+    color: var(--text-navy);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .footer a:hover {
+    color: var(--accent-mustard);
+  }
+  
+  .footer i {
+    color: var(--accent-mustard);
+    margin-right: 5px;
+  }
+  
+  /* ===== ENROLL BUTTON ===== */
+  #enrollBtn {
+    position: fixed;
+    bottom: 2rem;
+    right: 1.5rem;
+    background-color: var(--accent-mustard);
+    color: var(--text-navy);
+    border: none;
+    padding: 1rem;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 1.2rem;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+  }
+  
+  #enrollBtn:hover {
+    transform: scale(1.1);
+  }
+  
+  /* ===== RESPONSIVE NAV ===== */
+  @media (max-width: 780px) {
+    .nav-right {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: var(--bg-cream);
+      width: 100%;
+      flex-direction: column;
+      gap: 0;
+      padding: 1rem 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      z-index: 999;
+    }
+  
+    .nav-right.active {
+      display: flex;
+    }
+  
+    .nav-right a {
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #ddd;
+      font-weight: 600;
+    }
+  
+    .nav-right a:last-child {
+      border-bottom: none;
+    }
+  
+    .nav-toggle {
+      display: block;
+    }
+    @media (max-width: 780px) {
+        .hero {
+          padding-top: 60px; /* adjust this value to your navbar height */
+        }
+      }
+  }
+  @media (min-width: 781px) {
+    .nav-right {
+      display: flex !important;  /* Always show nav links */
+      position: static;
+      flex-direction: row;
+      box-shadow: none;
+      width: auto;
+      padding: 0;
+    }
+  
+    .nav-toggle {
+      display: none;             /* Hide hamburger */
+    }
+  }
+  }
