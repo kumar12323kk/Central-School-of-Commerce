@@ -1,601 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Central School of Commerce</title>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    /* ===== CSS VARIABLES ===== */
-    :root {
-      --bg-cream: #F6E2C0;
-      --text-navy: #102840;
-      --accent-mustard: #E1A100;
-      --font-heading: 'Raleway', sans-serif;
-      --font-body: 'Manrope', sans-serif;
-    }
-
-    /* ===== RESET & BASE STYLES ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: var(--font-body);
-      background-color: var(--bg-cream);
-      color: var(--text-navy);
-      line-height: 1.6;
-    }
-
-    h1, h2, h3 {
-      font-family: var(--font-heading);
-      color: var(--text-navy);
-    }
-
-    ul {
-      list-style: none;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* ===== NAVBAR ===== */
-    .navbar {
-      background-color: var(--bg-cream);
-      color: var(--text-navy);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-      flex-wrap: wrap;
-    }
-
-    .navbar .logo {
-      font-weight: 700;
-      font-size: 1.2rem;
-      text-decoration: none;
-      color: var(--text-navy);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 4px;
-    }
-
-    .navbar .nav-right {
-      display: flex;
-      gap: 1.2rem;
-    }
-
-    .navbar a {
-      text-decoration: none;
-      color: var(--text-navy);
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    .navbar a:hover {
-      color: var(--accent-mustard);
-    }
-
-    .nav-toggle {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      background: none;
-      border: none;
-      color: var(--text-navy);
-    }
-
-    /* ===== HERO SECTION ===== */
-    .hero {
-      text-align: center;
-      padding: 5rem 1rem;
-      background-color: var(--bg-cream);
-      margin-top: 60px; /* Prevent navbar overlap on desktop */
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      max-width: 600px;
-      margin: 0 auto 2rem;
-      font-size: 1.1rem;
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    /* ===== GALLERY ===== */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .gallery-grid img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .gallery-grid img:hover {
-      transform: scale(1.05);
-    }
-
-    /* ===== BUTTONS ===== */
-    .btn {
-      background-color: var(--text-navy);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 5px;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .btn:hover {
-      background-color: var(--accent-mustard);
-      color: var(--text-navy);
-    }
-
-    .btn.outline {
-      background: none;
-      border: 2px solid var(--text-navy);
-      color: var(--text-navy);
-    }
-
-    .btn.outline:hover {
-      background-color: var(--accent-mustard);
-      border-color: var(--accent-mustard);
-      color: var(--text-navy);
-    }
-
-    /* ===== SECTIONS ===== */
-    .section {
-      padding: 4rem 1.5rem;
-      text-align: center;
-    }
-
-    .section.alt {
-      background-color: #fbeccf;
-    }
-
-    .section h2 {
-      margin-bottom: 1rem;
-      font-size: 2rem;
-    }
-
-    .section p,
-    .section li {
-      font-size: 1rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .section.invisible {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    .section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .features {
-      max-width: 600px;
-      margin: 2rem auto 0;
-      padding-left: 0;
-    }
-
-    .features li {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 0.75rem;
-      justify-content: center;
-    }
-
-    .features i {
-      color: var(--accent-mustard);
-    }
-
-    /* ===== COURSE LIST ===== */
-    .course-list {
-      max-width: 600px;
-      margin: auto;
-      text-align: left;
-    }
-
-    /* ===== ENQUIRY FORM ===== */
-    .enquiry-form {
-      max-width: 600px;
-      margin: auto;
-      text-align: left;
-    }
-
-    .enquiry-form label {
-      display: block;
-      margin: 1rem 0 0.3rem;
-      font-weight: 600;
-    }
-
-    .enquiry-form input,
-    .enquiry-form textarea {
-      width: 100%;
-      padding: 0.75rem;
-      border: 2px solid var(--accent-mustard);
-      border-radius: 4px;
-      font-size: 1rem;
-      resize: vertical;
-    }
-
-    .checkbox-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-top: 0.5rem;
-    }
-
-    .checkbox-group label {
-      display: inline-flex;
-      align-items: center;
-      font-size: 1rem;
-      gap: 0.5rem;
-      cursor: pointer;
-    }
-
-    .checkbox-group input[type="checkbox"] {
-      transform: translateY(1px);
-      accent-color: var(--accent-mustard);
-      width: 18px;
-      height: 18px;
-      flex-shrink: 0;
-    }
-
-    .error {
-      color: red;
-      font-size: 0.9rem;
-      margin-top: 0.2rem;
-      display: block;
-    }
-
-    /* ===== FOOTER ===== */
-    .footer {
-      background-color: var(--bg-cream);
-      padding: 2rem 1rem;
-      text-align: center;
-      font-size: 0.95rem;
-      border-top: 2px solid var(--accent-mustard);
-    }
-
-    .footer a {
-      color: var(--text-navy);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .footer a:hover {
-      color: var(--accent-mustard);
-    }
-
-    .footer i {
-      color: var(--accent-mustard);
-      margin-right: 5px;
-    }
-
-    /* ===== ENROLL BUTTON ===== */
-    #enrollBtn {
-      position: fixed;
-      bottom: 2rem;
-      right: 1.5rem;
-      background-color: var(--accent-mustard);
-      color: var(--text-navy);
-      border: none;
-      padding: 1rem;
-      border-radius: 50%;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-      font-size: 1.2rem;
-      z-index: 1001;
-      transition: transform 0.3s ease;
-    }
-
-    #enrollBtn:hover {
-      transform: scale(1.1);
-    }
-
-    /* ===== RESPONSIVE DESIGN ===== */
-    @media (max-width: 780px) {
-      .nav-right {
-        display: none;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background: var(--bg-cream);
-        width: 100%;
-        flex-direction: column;
-        padding: 1rem 0;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      }
-
-      .nav-right.active {
-        display: flex;
-      }
-
-      .nav-right a {
-        padding: 1rem 2rem;
-        border-bottom: 1px solid #ddd;
-        font-weight: 600;
-      }
-
-      .nav-right a:last-child {
-        border-bottom: none;
-      }
-
-      .nav-toggle {
-        display: block;
-      }
-
-      .hero {
-        padding-top: 100px; /* Increased to prevent overlap */
-      }
-    }
-
-    @media (min-width: 781px) {
-      .nav-right {
-        display: flex;
-        position: static;
-        flex-direction: row;
-        box-shadow: none;
-        width: auto;
-        padding: 0;
-      }
-
-      .nav-toggle {
-        display: none;
-      }
-    }
-
-    @media (max-width: 480px) {
-      #enrollBtn {
-        bottom: 1rem;
-        right: 1rem;
-        padding: 0.8rem;
-        font-size: 1rem;
-      }
-
-      .gallery-grid {
-        grid-template-columns: 1fr; /* Single column for small screens */
-      }
-
-      .hero {
-        padding-top: 110px; /* Extra padding for smaller screens */
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central School of Commerce</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Graphic1.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <nav class="navbar">
-    <a href="#" class="logo">
-      <img src="images/logo.jpg" alt="Central School of Commerce Logo" class="logo-icon">
-      Central School of Commerce
-    </a>
-    <div class="nav-right" id="navMenu">
-      <a href="tel:+916383032090">Call</a>
-      <a href="https://maps.app.goo.gl/xxx">Location</a>
-      <a href="https://wa.me/916383032090">WhatsApp</a>
-    </div>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-      <i class="fas fa-bars"></i>
-    </button>
-  </nav>
+    <nav>
+        <div class="left">
+            <a href="#" class="logo-name">
+                <img src="Graphic1.png" alt="Logo" width="24" height="24">
+                Central School of Commerce
+            </a>
+        </div>
+        <div class="right">
+            <a href="tel:+916383032090">Call</a>
+            <a href="https://maps.app.goo.gl/v5qb3UVpFG2PNQEm6" target="_blank">Location</a>
+            <a href="https://wa.me/916383032090" target="_blank">WhatsApp</a>
+        </div>
+    </nav>
 
-  <section class="hero section">
-    <h1>Practical Skills. Real Careers.</h1>
-    <p>Since 1995, training students in Typewriting, Shorthand, and Computers with discipline, quality, and care.</p>
-    <div class="hero-buttons">
-      <a href="#courses" class="btn">Explore Courses</a>
-      <a href="tel:+916383032090" class="btn outline">Call Us</a>
-      <a href="#enquiry" class="btn">Enroll Now</a>
-    </div>
-  </section>
+    <section class="hero-section">
+        <h1>Practical Skills. Real Careers.</h1>
+        <p>Since 1995, training students in Typewriting, Shorthand, and Computers with discipline, quality, and care.</p>
+        <div class="buttons">
+            <a href="#courses">Explore Courses</a>
+            <a href="tel:+916383032090">Call Now</a>
+        </div>
+    </section>
 
-  <section class="section" id="about">
-    <h2>About Us</h2>
-    <p>Central School of Commerce has been a trusted name in skill-based education since 1995. We specialize in government certification training for Typewriting, Shorthand, and Computers. Our disciplined, practical learning approach is built on nearly 30 years of experience.</p>
-    <ul class="features">
-      <li><i class="fas fa-check"></i> 29+ Years of Excellence</li>
-      <li><i class="fas fa-check"></i> Govt Exam Preparation</li>
-      <li><i class="fas fa-check"></i> Expert-Led Practical Training</li>
-      <li><i class="fas fa-check"></i> Calm, Focused Environment</li>
-      <li><i class="fas fa-check"></i> Career-Ready Courses</li>
-    </ul>
-  </section>
+    <section class="info-section" id="about">
+        <h2>About Us</h2>
+        <p>Central School of Commerce has been a trusted name in skill-based education since 1995. We specialize in government certification training for Typewriting, Shorthand, and Computers. Our disciplined, practical learning approach is built on nearly 30 years of experience.</p>
+        <ul>
+            <li>29+ Years of Excellence</li>
+            <li>Govt Exam Preparation</li>
+            <li>Expert-Led Practical Training</li>
+            <li>Calm, Focused Environment</li>
+            <li>Career-Ready Courses</li>
+        </ul>
+    </section>
 
-  <section class="section alt" id="courses">
-    <h2>Our Courses</h2>
-    <ul class="course-list">
-      <li>Typewriting (English & Tamil) – 6 months</li>
-      <li>Shorthand (English & Tamil) – 6 months or 1 year</li>
-      <li>COA – Computer on Office Automation (Govt. Certified)</li>
-      <li>Computer Basics – MS Office & OpenOffice</li>
-    </ul>
-  </section>
+    <section class="info-section" id="courses">
+        <h2>Our Courses</h2>
+        <ul>
+            <li>Typewriting (English & Tamil) – 6 months</li>
+            <li>Shorthand (English & Tamil) – 6 months or 1 year</li>
+            <li>COA – Computer on Office Automation (Govt. Certified)</li>
+            <li>Computer Basics – MS Office & OpenOffice</li>
+        </ul>
+    </section>
 
-  <section class="section" id="gallery">
-    <h2>Our Gallery</h2>
-    <div class="gallery-grid">
-      <img src="images/gallery1.jpg" alt="Gallery Image 1">
-      <img src="images/gallery2.jpg" alt="Gallery Image 2">
-      <img src="images/gallery3.jpg" alt="Gallery Image 3">
-    </div>
-  </section>
+    <section class="gallery-section" id="gallery">
+        <h2>Our Gallery</h2>
+        <div class="gallery-grid" id="gallery-grid">
+            <img src="institute_2.jpg" alt="Typewriting Room">
+            <img src="institute_1.jpg" alt="Students Practicing">
+            <img src="award-ceremony.jpg" alt="Award Ceremony">
+        </div>
+    </section>
 
-  <section class="section alt" id="timings">
-    <h2>Class Timings</h2>
-    <p>Morning: 6:00 AM – 12:00 PM</p>
-    <p>Evening: 4:00 PM – 8:00 PM</p>
-    <p>No age or eligibility restrictions – all are welcome.</p>
-  </section>
+    <section class="info-section" id="timing">
+        <h2>Class Timings</h2>
+        <p>Morning: 6:00 AM – 12:00 PM</p>
+        <p>Evening: 4:00 PM – 8:00 PM</p>
+        <p>No age or eligibility restrictions – all are welcome.</p>
+    </section>
 
-  <section class="section" id="enquiry">
-    <h2>Enquire Now</h2>
-    <form id="enquiryForm" class="enquiry-form">
-      <label for="name">Name</label>
-      <input type="text" name="name" id="name">
-      <span class="error" id="nameError"></span>
+    <section class="info-section" id="enquiry">
+        <h2>Enquire Now</h2>
+        <form id="enquiryForm">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required>
 
-      <label for="phone">Phone Number</label>
-      <input type="tel" name="phone" id="phone">
-      <span class="error" id="phoneError"></span>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" name="phone" id="phone" required>
 
-      <label>Course Interested</label>
-      <div class="checkbox-group">
-        <label><input type="checkbox" name="course" value="Typewriting"> Typewriting (Eng & Tam)</label>
-        <label><input type="checkbox" name="course" value="Shorthand"> Shorthand (Eng & Tam)</label>
-        <label><input type="checkbox" name="course" value="COA"> COA</label>
-        <label><input type="checkbox" name="course" value="Computer Basics"> Computer Basics</label>
-      </div>
-      <span class="error" id="courseError"></span>
+            <label>Course Interested:</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="course" value="Typewriting"> Typewriting (English & Tamil)</label>
+                <label><input type="checkbox" name="course" value="Shorthand"> Shorthand (English & Tamil)</label>
+                <label><input type="checkbox" name="course" value="COA"> COA</label>
+                <label><input type="checkbox" name="course" value="Computer Basics"> Computer Basics</label>
+            </div>
 
-      <label for="message">Message (Optional)</label>
-      <textarea name="message" id="message"></textarea>
+            <label for="message">Message (Optional):</label>
+            <textarea name="message" id="message"></textarea>
 
-      <button type="submit">Send via WhatsApp</button>
-    </form>
-  </section>
+            <button type="submit">Send via WhatsApp</button>
+        </form>
+    </section>
 
-  <footer class="footer">
-    <p><i class="fas fa-phone"></i> <a href="tel:+916383032090">+91-6383032090</a>, <a href="tel:+918973120153">+91-8973120153</a></p>
-    <p><i class="fas fa-map-marker-alt"></i> No.130, Near Harvipatti Park, Harvipatti, Thiruparankundram, Madurai – 625005</p>
-    <p><i class="fas fa-envelope"></i> <a href="mailto:schoolofcommerce130@gmail.com">schoolofcommerce130@gmail.com</a></p>
-    <p>© 2025 Central School of Commerce. All rights reserved.</p>
-  </footer>
+    <section class="contact-section">
+        <h2>Contact Us</h2>
+        <p><a href="tel:+916383032090">+91-6383032090</a>, <a href="tel:+918973120153">+91-8973120153</a></p>
+        <p>No.130, Near Harvipatti Park, Harvipatti, Thiruparankundram, Madurai – 625005</p>
+        <p><a href="mailto:centralschoolofcommerce15@gmail.com">centralschoolofcommerce15@gmail.com</a></p>
+        <p><a href="https://wa.me/916383032090">Message on WhatsApp</a></p>
+        <footer>
+            <p>© 2025 Central School of Commerce. All rights reserved.</p>
+        </footer>
+    </section>
 
-  <button id="enrollBtn" aria-label="Enroll Now"><i class="fas fa-user-plus"></i></button>
+    <button id="enrollBtn">Enroll Now</button>
 
-  <script>
-    // Dynamically adjust hero padding based on navbar height
-    function adjustHeroPadding() {
-      const navbar = document.querySelector('.navbar');
-      const hero = document.querySelector('.hero');
-      const navbarHeight = navbar.offsetHeight;
-      if (window.innerWidth <= 780) {
-        hero.style.paddingTop = `${navbarHeight + 20}px`; // Add extra 20px for safety
-      } else {
-        hero.style.paddingTop = '5rem'; // Reset to default on desktop
-      }
-    }
-
-    // Run on load and resize
-    window.addEventListener('load', adjustVoiceHeroPadding);
-    window.addEventListener('resize', adjustHeroPadding);
-
-    // ===== NAV TOGGLE FOR MOBILE =====
-    document.getElementById('navToggle').addEventListener('click', () => {
-      document.getElementById('navMenu').classList.toggle('active');
-    });
-
-    // ===== SCROLL TO ENQUIRY FORM =====
-    const enrollBtn = document.getElementById('enrollBtn');
-    const enquirySection = document.getElementById('enquiry');
-
-    enrollBtn?.addEventListener('click', () => {
-      enquirySection?.scrollIntoView({ behavior: 'smooth' });
-    });
-
-    // ===== WHATSAPP FORM SUBMISSION =====
-    const enquiryForm = document.getElementById('enquiryForm');
-    const whatsappNumber = '916383032090';
-
-    enquiryForm?.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const name = enquiryForm.name.value.trim();
-      const phone = enquiryForm.phone.value.trim();
-      const message = enquiryForm.message.value.trim();
-      const courses = enquiryForm.querySelectorAll('input[name="course"]:checked');
-
-      const nameError = document.getElementById('nameError');
-      const phoneError = document.getElementById('phoneError');
-      const courseError = document.getElementById('courseError');
-
-      nameError.textContent = '';
-      phoneError.textContent = '';
-      courseError.textContent = '';
-
-      let isValid = true;
-
-      if (!name) {
-        nameError.textContent = 'Name is required';
-        isValid = false;
-      }
-
-      if (!phone || !/^\d{10}$/.test(phone)) {
-        phoneError.textContent = 'Enter a valid 10-digit phone number';
-        isValid = false;
-      }
-
-      if (courses.length === 0) {
-        courseError.textContent = 'Select at least one course';
-        isValid = false;
-      }
-
-      if (!isValid) return;
-
-      let whatsappMessage = `Hello, I am *${name}*.%0APhone: ${phone}%0AInterested in: ${Array.from(courses).map(c => c.value).join(', ')}`;
-      if (message) {
-        whatsappMessage += `%0AMessage: ${message}`;
-      }
-
-      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-      window.open(whatsappURL, '_blank');
-    });
-
-    // ===== SCROLL ANIMATIONS WITH INTERSECTION OBSERVER =====
-    const sections = document.querySelectorAll('.section');
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, {
-      threshold: 0.2
-    });
-
-    sections.forEach(section => {
-      section.classList.add('invisible');
-      observer.observe(section);
-    });
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
