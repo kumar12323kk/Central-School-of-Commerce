@@ -1,100 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Central School of Commerce</title>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-  <!-- Icons -->
-  <script src="https://kit.fontawesome.com/9fc6410222.js" crossorigin="anonymous"></script>
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Favicon-->
-  <link rel="icon" href="Graphic1.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-
 <body>
-  <nav class="top-bar">
-    <a href="#" class="logo-name">
-      <img src="Graphic1.png" alt="Logo" width="24" height="24" />
+  <nav class="navbar">
+    <a href="#" class="logo">
+      <img src="images/logo.jpg" alt="Central School of Commerce Logo" class="logo-icon">
       Central School of Commerce
     </a>
-    <div class="right-links">
-      <a href="tel:+916383032090"><i class="fa-solid fa-phone"></i> Call</a>
-      <a href="https://maps.app.goo.gl/v5qb3UVpFG2PNQEm6" target="_blank"><i class="fa-solid fa-location-dot"></i> Location</a>
-      <a href="https://wa.me/916383032090" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+    <div class="nav-right" id="navMenu">
+      <a href="tel:+916383032090">Call</a>
+      <a href="https://maps.app.goo.gl/xxx">Location</a>
+      <a href="https://wa.me/916383032090">WhatsApp</a>
     </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
   </nav>
 
-  <header class="hero">
-    <div class="hero-text">
-      <h1 class="raleway">Practical Skills. Real Careers.</h1>
-      <p class="manrope">Since 1995, training students in Typewriting, Shorthand, and Computers with discipline, quality, and care.</p>
-      <div class="hero-buttons">
-        <a href="#courses" class="btn">Explore Courses</a>
-        <a href="tel:+916383032090" class="btn outline">Call Us</a>
-        <a href="#enquiry" class="btn">Enroll Now</a>
-      </div>
+  <section class="hero section">
+    <h1>Practical Skills. Real Careers.</h1>
+    <p>Since 1995, training students in Typewriting, Shorthand, and Computers with discipline, quality, and care.</p>
+    <div class="hero-buttons">
+      <a href="#courses" class="btn">Explore Courses</a>
+      <a href="tel:+916383032090" class="btn outline">Call Us</a>
+      <a href="#enquiry" class="btn">Enroll Now</a>
     </div>
-  </header>
+  </section>
 
-  <section id="about" class="section">
-    <h2 class="raleway">About Us</h2>
-    <p class="manrope">
-      Central School of Commerce has been a trusted name in skill-based education since 1995. We specialize in government certification training for Typewriting, Shorthand, and Computers. Our disciplined, practical learning approach is built on nearly 30 years of experience.
-    </p>
+  <section class="section" id="about">
+    <h2>About Us</h2>
+    <p>Central School of Commerce has been a trusted name in skill-based education since 1995. We specialize in government certification training for Typewriting, Shorthand, and Computers. Our disciplined, practical learning approach is built on nearly 30 years of experience.</p>
     <ul class="features">
-      <li><i class="fa-solid fa-clock"></i> 29+ Years of Excellence</li>
-      <li><i class="fa-solid fa-graduation-cap"></i> Govt Exam Preparation</li>
-      <li><i class="fa-solid fa-chalkboard-teacher"></i> Expert-Led Practical Training</li>
-      <li><i class="fa-solid fa-leaf"></i> Calm, Focused Environment</li>
-      <li><i class="fa-solid fa-briefcase"></i> Career-Ready Courses</li>
+      <li><i class="fas fa-check"></i> 29+ Years of Excellence</li>
+      <li><i class="fas fa-check"></i> Govt Exam Preparation</li>
+      <li><i class="fas fa-check"></i> Expert-Led Practical Training</li>
+      <li><i class="fas fa-check"></i> Calm, Focused Environment</li>
+      <li><i class="fas fa-check"></i> Career-Ready Courses</li>
     </ul>
   </section>
 
-  <section id="courses" class="section alt">
-    <h2 class="raleway">Our Courses</h2>
-    <ul class="manrope course-list">
-      <li><strong>Typewriting (English & Tamil)</strong> – 6 months</li>
-      <li><strong>Shorthand (English & Tamil)</strong> – 6 months or 1 year</li>
-      <li><strong>COA</strong> – Computer on Office Automation (Govt. Certified)</li>
-      <li><strong>Computer Basics</strong> – MS Office & OpenOffice</li>
+  <section class="section alt" id="courses">
+    <h2>Our Courses</h2>
+    <ul class="course-list">
+      <li>Typewriting (English & Tamil) – 6 months</li>
+      <li>Shorthand (English & Tamil) – 6 months or 1 year</li>
+      <li>COA – Computer on Office Automation (Govt. Certified)</li>
+      <li>Computer Basics – MS Office & OpenOffice</li>
     </ul>
   </section>
 
-  <section id="gallery" class="section">
-    <h2 class="raleway">Our Gallery</h2>
+  <section class="section" id="gallery">
+    <h2>Our Gallery</h2>
     <div class="gallery-grid">
-      <img src="institute_2.jpg" alt="Typewriting Room">
-      <img src="institute_1.jpg" alt="Students Practicing">
-      <img src="award-ceremony.jpg" alt="Award Ceremony">
+      <img src="images/gallery1.jpg" alt="Gallery Image 1">
+      <img src="images/gallery2.jpg" alt="Gallery Image 2">
+      <img src="images/gallery3.jpg" alt="Gallery Image 3">
     </div>
   </section>
 
-  <section id="timing" class="section">
-    <h2 class="raleway">Class Timings</h2>
-    <p class="manrope"><strong>Morning:</strong> 6:00 AM – 12:00 PM</p>
-    <p class="manrope"><strong>Evening:</strong> 4:00 PM – 8:00 PM</p>
-    <p class="manrope"><em>No age or eligibility restrictions – all are welcome.</em></p>
+  <section class="section alt" id="timings">
+    <h2>Class Timings</h2>
+    <p>Morning: 6:00 AM – 12:00 PM</p>
+    <p>Evening: 4:00 PM – 8:00 PM</p>
+    <p>No age or eligibility restrictions – all are welcome.</p>
   </section>
 
-  <section id="enquiry" class="section alt">
-    <h2 class="raleway">Enquire Now</h2>
+  <section class="section" id="enquiry">
+    <h2>Enquire Now</h2>
     <form id="enquiryForm" class="enquiry-form">
       <label for="name">Name</label>
-      <input type="text" id="name" name="name" required placeholder="Your full name">
+      <input type="text" name="name" id="name">
+      <span class="error" id="nameError"></span>
 
       <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="phone" required placeholder="e.g. +91 98765 43210" pattern="[+0-9\s]+">
+      <input type="tel" name="phone" id="phone">
+      <span class="error" id="phoneError"></span>
 
       <label>Course Interested</label>
       <div class="checkbox-group">
@@ -103,26 +90,22 @@
         <label><input type="checkbox" name="course" value="COA"> COA</label>
         <label><input type="checkbox" name="course" value="Computer Basics"> Computer Basics</label>
       </div>
+      <span class="error" id="courseError"></span>
 
       <label for="message">Message (Optional)</label>
-      <textarea id="message" name="message" placeholder="Ask us anything!"></textarea>
+      <textarea name="message" id="message"></textarea>
 
-      <button type="submit" class="btn">Send via WhatsApp</button>
+      <button type="submit">Send via WhatsApp</button>
     </form>
   </section>
 
   <footer class="footer">
-    <div class="footer-content">
-      <p><i class="fa-solid fa-phone"></i> <a href="tel:+916383032090">+91-6383032090</a>, <a href="tel:+918973120153">+91-8973120153</a></p>
-      <p><i class="fa-solid fa-location-dot"></i> No.130, Near Harvipatti Park, Harvipatti, Thiruparankundram, Madurai – 625005</p>
-      <p><i class="fa-solid fa-envelope"></i> <a href="mailto:centralschoolofcommerce15@gmail.com">centralschoolofcommerce15@gmail.com</a></p>
-      <p>&copy; 2025 Central School of Commerce. All rights reserved.</p>
-    </div>
+    <p><i class="fas fa-phone"></i> <a href="tel:+916383032090">+91-6383032090</a>, <a href="tel:+918973120153">+91-8973120153</a></p>
+    <p><i class="fas fa-map-marker-alt"></i> No.130, Near Harvipatti Park, Harvipatti, Thiruparankundram, Madurai – 625005</p>
+    <p><i class="fas fa-envelope"></i> <a href="mailto:schoolofcommerce130@gmail.com">schoolofcommerce130@gmail.com</a></p>
+    <p>© 2025 Central School of Commerce. All rights reserved.</p>
   </footer>
 
- 
-
-  <script src="script.js"></script>
+  <button id="enrollBtn" aria-label="Enroll Now"><i class="fas fa-user-plus"></i></button>
 </body>
-
 </html>
