@@ -1,17 +1,7 @@
 // ===== NAV TOGGLE FOR MOBILE =====
-
-console.log("working");
-
-const enrollBtn = document.getElementById('enrollBtn');
-...
-const navToggle = document.getElementById('navToggle');
-const navMenu = document.getElementById('navMenu');
-
-if (navToggle && navMenu) {
-  navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-  });
-}
+document.getElementById('navToggle').addEventListener('click', () => {
+  document.getElementById('navMenu').classList.toggle('active');
+});
 
 // ===== SCROLL TO ENQUIRY FORM =====
 const enrollBtn = document.getElementById('enrollBtn');
@@ -23,6 +13,7 @@ enrollBtn?.addEventListener('click', () => {
 
 // ===== WHATSAPP FORM SUBMISSION =====
 const enquiryForm = document.getElementById('enquiryForm');
+const whatsappNumber = '916383032090';
 
 enquiryForm?.addEventListener('submit', function (e) {
   e.preventDefault();
@@ -30,23 +21,41 @@ enquiryForm?.addEventListener('submit', function (e) {
   const name = enquiryForm.name.value.trim();
   const phone = enquiryForm.phone.value.trim();
   const message = enquiryForm.message.value.trim();
+  const courses = enquiryForm.querySelectorAll('input[name="course"]:checked');
 
-  const courses = [];
-  enquiryForm.querySelectorAll('input[name="course"]:checked').forEach((checkbox) => {
-    courses.push(checkbox.value);
-  });
+  const nameError = document.getElementById('nameError');
+  const phoneError = document.getElementById('phoneError');
+  const courseError = document.getElementById('courseError');
 
-  if (!name || !phone || courses.length === 0) {
-    alert('Please fill in your name, phone number, and select at least one course.');
-    return;
+  nameError.textContent = '';
+  phoneError.textContent = '';
+  courseError.textContent = '';
+
+  let isValid = true;
+
+  if (!name) {
+    nameError.textContent = 'Name is required';
+    isValid = false;
   }
 
-  let whatsappMessage = `Hello, I am *${name}*.%0APhone: ${phone}%0AInterested in: ${courses.join(', ')}`;
+  if (!phone) {
+    phoneError.textContent = 'Phone number is required';
+    isValid = false;
+  }
+
+  if (courses.length === 0) {
+    courseError.textContent = 'Select at least one course';
+    isValid = false;
+  }
+
+  if (!isValid) return;
+
+  let whatsappMessage = `Hello, I am *${name}*.%0APhone: ${phone}%0AInterested in: ${Array.from(courses).map(c => c.value).join(', ')}`;
   if (message) {
     whatsappMessage += `%0AMessage: ${message}`;
   }
 
-  const whatsappURL = `https://wa.me/916383032090?text=${whatsappMessage}`;
+  const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
   window.open(whatsappURL, '_blank');
 });
 
