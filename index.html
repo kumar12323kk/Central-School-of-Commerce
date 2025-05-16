@@ -96,6 +96,7 @@
       cursor: pointer;
       background: none;
       border: none;
+      color: var(--text-navy);
     }
 
     /* ===== HERO SECTION ===== */
@@ -103,7 +104,7 @@
       text-align: center;
       padding: 5rem 1rem;
       background-color: var(--bg-cream);
-      margin-top: 60px; /* Prevent navbar overlap */
+      margin-top: 60px; /* Prevent navbar overlap on desktop */
     }
 
     .hero h1 {
@@ -363,7 +364,7 @@
       }
 
       .hero {
-        padding-top: calc(60px + 1rem);
+        padding-top: 80px; /* Increased to prevent overlap */
       }
     }
 
@@ -393,13 +394,17 @@
       .gallery-grid {
         grid-template-columns: 1fr; /* Single column for small screens */
       }
+
+      .hero {
+        padding-top: 90px; /* Extra padding for smaller screens */
+      }
     }
   </style>
 </head>
 <body>
   <nav class="navbar">
     <a href="#" class="logo">
-      <img src="images/logo.jpg" alt="Central School of Commerce Logo" class="logo-icon">
+      <img src among other things src="Graphic1.png" alt="Central School of Commerce Logo" class="logo-icon">
       Central School of Commerce
     </a>
     <div class="nav-right" id="navMenu">
@@ -435,7 +440,7 @@
   </section>
 
   <section class="section alt" id="courses">
-    <h2>Our`Our Courses</h2>
+    <h2>Our Courses</h2>
     <ul class="course-list">
       <li>Typewriting (English & Tamil) – 6 months</li>
       <li>Shorthand (English & Tamil) – 6 months or 1 year</li>
@@ -447,9 +452,9 @@
   <section class="section" id="gallery">
     <h2>Our Gallery</h2>
     <div class="gallery-grid">
-      <img src="images/gallery1.jpg" alt="Gallery Image 1">
-      <img src="images/gallery2.jpg" alt="Gallery Image 2">
-      <img src="images/gallery3.jpg" alt="Gallery Image 3">
+      <img src="award_ceremony.png" alt="Gallery Image 1">
+      <img src="institute_2.jpg" alt="Gallery Image 2">
+      <img src="institute_2.jpg" alt="Gallery Image 3">
     </div>
   </section>
 
