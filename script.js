@@ -1,4 +1,9 @@
 // ===== NAV TOGGLE FOR MOBILE =====
+
+console.log("working");
+
+const enrollBtn = document.getElementById('enrollBtn');
+...
 const navToggle = document.getElementById('navToggle');
 const navMenu = document.getElementById('navMenu');
 
