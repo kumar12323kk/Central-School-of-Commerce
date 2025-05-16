@@ -364,7 +364,7 @@
       }
 
       .hero {
-        padding-top: 80px; /* Increased to prevent overlap */
+        padding-top: 100px; /* Increased to prevent overlap */
       }
     }
 
@@ -396,7 +396,7 @@
       }
 
       .hero {
-        padding-top: 90px; /* Extra padding for smaller screens */
+        padding-top: 110px; /* Extra padding for smaller screens */
       }
     }
   </style>
@@ -404,7 +404,7 @@
 <body>
   <nav class="navbar">
     <a href="#" class="logo">
-      <img src among other things src="Graphic1.png" alt="Central School of Commerce Logo" class="logo-icon">
+      <img src="images/logo.jpg" alt="Central School of Commerce Logo" class="logo-icon">
       Central School of Commerce
     </a>
     <div class="nav-right" id="navMenu">
@@ -452,9 +452,9 @@
   <section class="section" id="gallery">
     <h2>Our Gallery</h2>
     <div class="gallery-grid">
-      <img src="award_ceremony.png" alt="Gallery Image 1">
-      <img src="institute_2.jpg" alt="Gallery Image 2">
-      <img src="institute_2.jpg" alt="Gallery Image 3">
+      <img src="images/gallery1.jpg" alt="Gallery Image 1">
+      <img src="images/gallery2.jpg" alt="Gallery Image 2">
+      <img src="images/gallery3.jpg" alt="Gallery Image 3">
     </div>
   </section>
 
@@ -502,6 +502,22 @@
   <button id="enrollBtn" aria-label="Enroll Now"><i class="fas fa-user-plus"></i></button>
 
   <script>
+    // Dynamically adjust hero padding based on navbar height
+    function adjustHeroPadding() {
+      const navbar = document.querySelector('.navbar');
+      const hero = document.querySelector('.hero');
+      const navbarHeight = navbar.offsetHeight;
+      if (window.innerWidth <= 780) {
+        hero.style.paddingTop = `${navbarHeight + 20}px`; // Add extra 20px for safety
+      } else {
+        hero.style.paddingTop = '5rem'; // Reset to default on desktop
+      }
+    }
+
+    // Run on load and resize
+    window.addEventListener('load', adjustVoiceHeroPadding);
+    window.addEventListener('resize', adjustHeroPadding);
+
     // ===== NAV TOGGLE FOR MOBILE =====
     document.getElementById('navToggle').addEventListener('click', () => {
       document.getElementById('navMenu').classList.toggle('active');
